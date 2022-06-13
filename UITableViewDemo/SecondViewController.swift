@@ -16,6 +16,7 @@ class SecondViewController: UIViewController {
         tableView.estimatedRowHeight = 44
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         tableView.register(DynamicArticleTableViewCell.self, forCellReuseIdentifier: "DynamicCell")
+//        tableView.register(StaticArticleTableViewCell.self, forCellReuseIdentifier: "StaticCell")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -53,6 +54,10 @@ extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
             return cell
         }
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StaticCell", for: indexPath) as? StaticArticleTableViewCell else {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
+//            return cell
+//        }
         
         let article = self.articles[indexPath.row]
         cell.setup(with: article)

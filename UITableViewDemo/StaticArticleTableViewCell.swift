@@ -9,14 +9,6 @@ import UIKit
 
 class StaticArticleTableViewCell: UITableViewCell {
     
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 10
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .clear
@@ -24,7 +16,6 @@ class StaticArticleTableViewCell: UITableViewCell {
         label.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 22)
         label.textColor = .black
         label.setContentCompressionResistancePriority(UILayoutPriority(1000), for: .vertical)
-        label.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -57,19 +48,33 @@ class StaticArticleTableViewCell: UITableViewCell {
     private func setupView() {
         self.contentView.backgroundColor = .white
 
-        self.contentView.addSubview(self.stackView)
-        self.stackView.addArrangedSubview(self.titleLabel)
-        self.stackView.addArrangedSubview(self.descriptionLabel)
+        self.contentView.addSubview(self.titleLabel)
+        self.contentView.addSubview(self.descriptionLabel)
         
-        let stackViewConstraints = self.stackViewConstraints()
-        NSLayoutConstraint.activate(stackViewConstraints)
+        let titleLabelConstraints = self.titleLabelConstraints()
+        let descriptionLabelConstraints = self.descriptionLabelConstraints()
+        
+        NSLayoutConstraint.activate(
+            titleLabelConstraints +
+            descriptionLabelConstraints
+        )
     }
     
-    private func stackViewConstraints() -> [NSLayoutConstraint] {
-        let topConstraint = self.stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10)
-        let leadingConstraint = self.stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10)
-        let trailingConstraint = self.stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10)
-        let bottomConstraint = self.stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10)
+    private func titleLabelConstraints() -> [NSLayoutConstraint] {
+        let topConstraint = self.titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10)
+        let leadingConstraint = self.titleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10)
+        let trailingConstraint = self.titleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10)
+
+        return [
+            topConstraint, leadingConstraint, trailingConstraint
+        ]
+    }
+    
+    private func descriptionLabelConstraints() -> [NSLayoutConstraint] {
+        let topConstraint = self.descriptionLabel.topAnchor.constraint(greaterThanOrEqualTo: self.titleLabel.bottomAnchor, constant: 10)
+        let leadingConstraint = self.descriptionLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10)
+        let trailingConstraint = self.descriptionLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10)
+        let bottomConstraint = self.descriptionLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10)
 
         return [
             topConstraint, leadingConstraint, trailingConstraint, bottomConstraint

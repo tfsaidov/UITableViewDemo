@@ -14,6 +14,8 @@ struct Mock {
     private init() {}
     
     let data: [Article] = [
+        Article(title: "Spotify Premium",
+                description: "Spotify is the leading ..."),
         Article(title: "The Quickest Way to Cancel Spotify Premium and Delete Your Account",
                 description: "Spotify is the leading ..."),
         Article(title: "The Quickest Way to Cancel Spotify Premium and Delete Your Account",
@@ -38,6 +40,7 @@ struct Mock {
                 description: "Apple device users appear to be vulnerable to a significant browser privacy flaw. According to 9to5Mac, FingerprintJS has disclosed an exploit that lets attackers obtain your recent browser history, and even some Google account info, from Safari 15 across all ..."),
         Article(title: "Apple\'s digital car keys may work with Hyundai and Genesis models this summer",
                 description: "Apple\'s digital car key feature might soon be useful for unlocking more than a handful of BMW models. In his latest newsletter, Bloomberg\'s Mark Gurman claimed Hyundai and its upscale Genesis badge will support Apple CarKey ..."),
-        Article(title: "Apple’s App Store now permits unlisted apps", description: "Apple has introduced a new feature that could help declutter the App Store somewhat. Per support documentation spotted by MacRumors, the marketplace now supports unlisted apps that users can only access through a direct link. Should a developer feel their ...")
+        Article(title: "Apple’s App Store now permits unlisted apps", description: "Apple has introduced a new feature that could help declutter the App Store somewhat. Per support documentation spotted by MacRumors, the marketplace now supports unlisted apps that users can only access through a direct link. Should a developer feel their ..."),
+        Article(title: "Apple’s App Store now permits unlisted apps. Apple’s App Store now permits unlisted apps. Apple’s App Store now permits unlisted apps. Apple’s App Store now permits unlisted apps. Apple’s App Store now permits unlisted apps. Apple’s App Store now permits unlisted apps. Apple’s App Store now permits unlisted apps. Apple’s App Store now permits unlisted apps. Apple’s App Store now permits unlisted apps. Apple’s App Store now permits unlisted apps.", description: "Apple has introduced a new feature that could help declutter the App Store somewhat. Per support documentation spotted by MacRumors, the marketplace now supports unlisted apps that users can only access through a direct link. Should a developer feel their ...")
     ]
 }
