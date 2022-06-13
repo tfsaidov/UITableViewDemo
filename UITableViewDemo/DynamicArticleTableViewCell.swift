@@ -23,7 +23,7 @@ class DynamicArticleTableViewCell: UITableViewCell {
         label.numberOfLines = 0
         label.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 22)
         label.textColor = .black
-//        label.setContentCompressionResistancePriority(UILayoutPriority(250), for: .vertical)
+        label.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -33,8 +33,6 @@ class DynamicArticleTableViewCell: UITableViewCell {
         label.numberOfLines = 0
         label.font = UIFont(name: "Georgia", size: 17)
         label.textColor = .black
-//        label.setContentCompressionResistancePriority(UILayoutPriority(1000), for: .vertical)
-//        label.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
